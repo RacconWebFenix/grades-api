@@ -40,7 +40,6 @@ const findAll = async (req, res) => {
 
 const findOne = async (req, res) => {
   const id = req.params.id;
-
   try {
     const data = await db.gradeModel.findById({ _id: id });
     res.send(data);
@@ -61,8 +60,8 @@ const update = async (req, res) => {
 
   const id = req.params.id;
   const data = await db.gradeModel.findByIdAndUpdate({ _id: id }, req.body, {
-      new: true,
-    });
+    new: true,
+  });
   res.send(data);
   try {
     logger.info(`PUT /grade - ${id} - ${JSON.stringify(req.body)}`);
@@ -89,6 +88,8 @@ const remove = async (req, res) => {
 
 const removeAll = async (req, res) => {
   try {
+    const data = await db.gradeModel.deleteMany({ _id: id }, req.body);
+    res.send(data);
     logger.info(`DELETE /grade`);
   } catch (error) {
     res.status(500).send({ message: "Erro ao excluir todos as Grades" });

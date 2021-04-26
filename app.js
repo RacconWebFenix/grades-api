@@ -16,6 +16,7 @@ import { db } from "./models/index.js";
 })();
 
 const app = express();
+app.use(cors({ origin: "http://localhost:3000" }));
 
 //define o dominio de origem para consumo do servico
 app.use(bodyParser.json());
