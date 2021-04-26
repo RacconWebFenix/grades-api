@@ -25,7 +25,7 @@ const findAll = async (req, res) => {
     : {};
 
   try {
-    const data = await db.gradeModel.find({});
+    const data = await db.gradeModel.find(condition);
     console.log(data);
     res.send(data);
     console.log(data);
@@ -88,7 +88,7 @@ const remove = async (req, res) => {
 
 const removeAll = async (req, res) => {
   try {
-    const data = await db.gradeModel.deleteMany({ _id: id }, req.body);
+    const data = await db.gradeModel.deleteMany({});
     res.send(data);
     logger.info(`DELETE /grade`);
   } catch (error) {
