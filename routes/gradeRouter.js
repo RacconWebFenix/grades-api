@@ -3,7 +3,7 @@ import controller from "../controllers/gradeController.js";
 import cors from "cors";
 
 const app = express();
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 
 app.post("/grade/", controller.create);
 app.get("/grade/", controller.findAll);
