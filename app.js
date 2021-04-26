@@ -25,14 +25,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors({ origin: "https://frontend-app-igti.herokuapp.com/" }));
-
 //define o dominio de origem para consumo do servico
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://frontend-app-igti.herokuapp.com/",
+    origin: "https://frontend-app-igti.herokuapp.com",
   })
 );
 
